@@ -1,0 +1,32 @@
+# Core numerical / scientific stack
+numpy>=1.24
+scipy>=1.10
+pandas>=2.0
+PyYAML>=6.0
+
+# Computer vision
+opencv-python>=4.8
+Pillow>=10.0
+
+# Detection / COCO evaluation
+pycocotools>=2.0.7
+
+# Training utilities
+tqdm>=4.66
+tensorboard>=2.14
+
+# Model / configuration utilities
+einops>=0.7
+timm>=1.0.0
+
+# Visualization
+matplotlib>=3.7
+
+# ONNX / deployment utilities
+onnx>=1.15
+onnxruntime>=1.16
+onnxsim>=0.4.36
+
+# General utilities
+requests>=2.31
+packaging>=23.0

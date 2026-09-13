@@ -1,0 +1,69 @@
+task: detection
+
+evaluator:
+  type: CocoEvaluator
+  iou_types: ['bbox', ]
+
+num_classes: 10 # your dataset classes
+remap_mscoco_category: False
+
+train_dataloader:
+  type: DataLoader
+  dataset:
+    type: CocoDetection
+    # img_folder: /home/waas/DEIM/dataset/train/images
+    # ann_file: /home/waas/DEIM/dataset/train/annotations/data.json
+    img_folder: D:/Users/Administrator/Desktop/DEIM_1553889381/dataset/aluminium.1/images/train
+    ann_file: D:/Users/Administrator/Desktop/DEIM_1553889381/dataset/aluminium.1/annotations/instances_train_deim.json
+    # img_folder: /root/code/project/DEIM/dataset/train/images
+    # ann_file: /root/code/project/DEIM/dataset/train/annotations/data.json
+    return_masks: False
+    transforms:
+      type: Compose
+      ops: ~
+      
+  shuffle: True
+  num_workers: 4
+  drop_last: True
+  pin_memory: True
+  collate_fn:
+    type: BatchImageCollateFunction
+
+
+val_dataloader:
+  type: DataLoader
+  dataset:
+    type: CocoDetection
+    # img_folder: /home/waas/DEIM/dataset/val/images
+    # ann_file: /home/waas/DEIM/dataset/val/annotations/data.json
+    img_folder: D:/Users/Administrator/Desktop/DEIM_1553889381/dataset/aluminium.1/images/val
+    ann_file: D:/Users/Administrator/Desktop/DEIM_1553889381/dataset/aluminium.1/annotations/instances_val_deim.json
+    # img_folder: /root/code/project/DEIM/dataset/val/images
+    # ann_file: /root/code/project/DEIM/dataset/val/annotations/data.json
+    return_masks: False
+    transforms:
+      type: Compose
+      ops: ~
+  shuffle: False
+  num_workers: 4
+  drop_last: False
+  pin_memory: True
+  collate_fn:
+    type: BatchImageCollateFunction
+
+# val_dataloader:
+#   type: DataLoader
+#   dataset:
+#     type: CocoDetection
+#     img_folder: /root/code/project/DEIM/dataset/test/images
+#     ann_file: /root/code/project/DEIM/dataset/test/annotations/data.json
+#     return_masks: False
+#     transforms:
+#       type: Compose
+#       ops: ~
+#   shuffle: False
+#   num_workers: 4
+#   drop_last: False
+#   pin_memory: True
+#   collate_fn:
+#     type: BatchImageCollateFunction
